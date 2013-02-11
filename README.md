@@ -3,6 +3,16 @@ Complex-Number-Library
 
 A Lua/LuaJIT library that allows you to work with complex numbers.
 
+Syntax: How to make the number 6+2.5i
+
+In pure Lua, use:
+num=complex(re,im)
+or
+num=cx'6+2.5i'
+
+In LuaJIT:
+num=6+2.5i
+
 Functions and constants available in cmath:
 Constants
 -e=2.718281828459
@@ -36,9 +46,9 @@ Trig functions
 -atan(z)
 -atan2(y,x)
 
--asinh
--acosh
--atanh
+-asinh(z)
+-acosh(z)
+-atanh(z)
 
 Miscellaneous functions
 -polar(z) returns r,phi = cmath.abs(z),cmath.arg(z)
