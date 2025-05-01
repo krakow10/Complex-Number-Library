@@ -18,7 +18,6 @@ local cosh=math.cosh
 local sinh=math.sinh
 local sqrt=math.sqrt
 local atan2=math.atan2
-local floor=math.floor
 
 --Locally used and desirable functions--
 local function re(n)
@@ -197,29 +196,7 @@ function cmath.atanh(c)
 	return (ln(1+c)-ln(1-c))/2
 end
 
---Miscellaneous functions
-function cmath.zeta(s,accuracy)
-	local sum=0
-	for n=1,accuracy or 10000 do
-		sum=sum+n^-s
-	end
-	return sum
-end
-
 --End of non-optimized terrors.
-
---Linear integration, evenly spaced slices
---f=function(x),low=0,high=100,slices=10000
-function cmath.lintegrate(f,H,L,n)
-	n=n or floor(10*sqrt(H))
-	L=L or 0
-	local LH=H-L
-	local A=(f(L)+f(H))/2
-	for x=1,n-1 do
-		A=A+f(L+LH*x/n)
-	end
-	return A/n
-end
 
 --cmath.log: Complex base logarithm! Two arguments (b=c1,z=c2) gives log_b(z), which is identical to log(c2)/log(c1).
 function cmath.log(c2,c1)

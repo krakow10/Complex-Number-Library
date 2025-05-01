@@ -17,7 +17,6 @@ local cosh=math.cosh
 local sinh=math.sinh
 local sqrt=math.sqrt
 local atan2=math.atan2
-local floor=math.floor
 
 local forget=1e-14--Forget ridiculously small values. Remove if you want to keep all values. (Not recommended for sanity, shouldn't make a difference in performance or output.)
 --The reason that this is here is because i^2 yields -1+0.0000000000000001i, and (-1)^0.5 yields 0.00000000000000006+i. (Should be just -1 and i)
@@ -214,29 +213,7 @@ function cmath.atanh(c)
 	return (ln(1+c)-ln(1-c))/2
 end
 
---Miscellaneous functions
-function cmath.zeta(s,a)
-	local sum=0
-	for n=a,accuracy or 10000 do
-		sum=sum+n^-s
-	end
-	return sum
-end
-
 --End of non-optimized terrors.
-
---Linear integration, evenly spaced slices
---f=function(x),low=0,high=100,slices=10000
-function cmath.lintegrate(f,H,L,n)
-	n=n or floor(10*sqrt(H))
-	L=L or 0
-	local LH=H-L
-	local A=(f(L)+f(H))/2
-	for x=1,n-1 do
-		A=A+f(L+LH*x/n)
-	end
-	return A/n
-end
 
 --cmath.log: Complex base logarithm! One argument (z=c1) gives log(z).  Two arguments (b=c1,z=c2) gives log_b(z), which is identical to log(c2)/log(c1).
 function cmath.log(c2,c1)
