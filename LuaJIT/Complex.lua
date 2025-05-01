@@ -7,11 +7,9 @@ local type=type
 local select=select
 local tonumber=tonumber
 local tostring=tostring
-local setmetatable=setmetatable
 
 local e=math.exp(1)
 local pi=math.pi
-local abs=math.abs
 local exp=math.exp
 local log=math.log
 local cos=math.cos
@@ -20,6 +18,7 @@ local cosh=math.cosh
 local sinh=math.sinh
 local sqrt=math.sqrt
 local atan2=math.atan2
+local floor=math.floor
 
 --Locally used and desirable functions--
 local function re(n)
